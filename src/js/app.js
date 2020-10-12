@@ -12,7 +12,6 @@ c.width = document.documentElement.clientWidth;
 c.height = 900;
 
 var size = 15;
-console.log("loop", loop);
 
 document.body.appendChild(c);
 
@@ -83,8 +82,13 @@ var player = new (function () {
       this.rSpeed = 5;
       k.ArrowUp = 1;
       this.x -= speed * 5;
-      // setTimeout("location.reload()", 3000);
-      reloading();
+      var timeoutReload = () => {
+        if (window.confirm("再挑戦しますか？")) {
+          reloading();
+        }
+      };
+
+      setTimeout(timeoutReload, 3000);
     }
 
     var angle = Math.atan2(p2 - size - this.y, this.x + 5 - this.x);
