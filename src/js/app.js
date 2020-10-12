@@ -124,7 +124,7 @@ var player = new (function () {
       };
       var playerBigger = () => {
         svgSize = 2000;
-        size = 1;
+        // size = 1;
       };
       if (gameover === false) {
         setTimeout(playerBigger, 900);
