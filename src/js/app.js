@@ -11,6 +11,8 @@ var ctx = c.getContext("2d");
 c.width = document.documentElement.clientWidth;
 c.height = 900;
 
+var gameQuit = false;
+
 var size = 40;
 document.body.appendChild(c);
 
@@ -98,6 +100,18 @@ var player = new (function () {
           this.rSpeed = 0;
           k.ArrowUp = 1;
           gameover = false;
+        } else {
+          gameQuit = true;
+          console.log("else");
+          // playing = false;
+          this.x = c.width / 2;
+          this.y = 0;
+          this.ySpeed = 0;
+          this.rot = 0;
+          this.rSpeed = 0;
+          k.ArrowUp = 0;
+          speed -= 1;
+          console.log("speed", speed);
         }
       };
       if (gameover === false) {
@@ -116,9 +130,10 @@ var player = new (function () {
       this.rot -= (this.rot - angle) * 0.5;
       this.rSpeed = this.rSpeed - (angle - this.rot);
     }
-
-    this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
-    this.rot -= this.rSpeed * 0.1;
+    if (gameQuit != true) {
+      this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
+      this.rot -= this.rSpeed * 0.1;
+    }
 
     if (this.rot > Math.PI) this.rot = -Math.PI;
     if (this.rot < -Math.PI) this.rot = Math.PI;
@@ -138,12 +153,14 @@ var playing = true;
 var gameover = false;
 var start = new Date();
 
-var k = { ArrowUp: 1, ArrowDown: 0, ArrowLeft: 0, ArrowRight: 0 };
+var k = { ArrowUp: 0, ArrowDown: 0, ArrowLeft: 0, ArrowRight: 0 };
 
 function loop() {
   // speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.1;
-  speed -= (speed - k.ArrowUp) * 0.1;
-
+  // speed -= (speed - k.ArrowUp) * 0.1;
+  if (gameQuit != true) {
+    speed = 1;
+  }
   t += 10 * speed;
   // ctx.fillStyle = "#19f";
   ctx.fillStyle = "black";
