@@ -11,8 +11,7 @@ var ctx = c.getContext("2d");
 c.width = document.documentElement.clientWidth;
 c.height = 900;
 
-var size = 15;
-
+var size = 40;
 document.body.appendChild(c);
 
 var perm = [];
@@ -38,9 +37,12 @@ var player = new (function () {
 
   this.img = new Image();
   //画像URLをサーバにuploadしたものにしています
-  this.img.src =
-    "https://user-images.githubusercontent.com/58985013/86532894-35b63a80-bf08-11ea-947b-0b662c0bfda7.png";
+  // this.img.src =
+  //   "https://user-images.githubusercontent.com/58985013/86532894-35b63a80-bf08-11ea-947b-0b662c0bfda7.png";
   // this.img.src = "images/trump.png";
+  // this.img.src = "../images/幽霊.svg";
+  // this.img.src = "../images/能面.svg";
+  this.img.src = "../images/能面2.svg";
 
   this.draw = function () {
     var p1 = c.height - noise(t + this.x) * 0.45;
@@ -95,7 +97,7 @@ var player = new (function () {
         }
       };
       if (gameover === false) {
-        setTimeout(timeoutReload, 1500);
+        setTimeout(timeoutReload, 1000);
         gameover = true;
       }
     }
@@ -120,7 +122,7 @@ var player = new (function () {
     ctx.save();
     ctx.translate(this.x, this.y);
     ctx.rotate(this.rot);
-    ctx.drawImage(this.img, -size, -size, 30, 30);
+    ctx.drawImage(this.img, -size, -size, 70, 70);
 
     ctx.restore();
   };
