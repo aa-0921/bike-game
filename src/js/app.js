@@ -68,14 +68,14 @@ var player = new (function () {
         return result;
       };
     };
-    var reloading = toExecutableOnce(function () {
-      // location.reload()
-      // speed = 0;
-      console.log("loop", loop);
-      // window.cancelAnimationFrame(loop);
-      location.reload();
-      // setTimeout("location.reload()", 3000);
-    });
+    // var reloading = toExecutableOnce(function () {
+    //   // location.reload()
+    //   // speed = 0;
+    //   console.log("loop", loop);
+    //   // window.cancelAnimationFrame(loop);
+    //   location.reload();
+    //   // setTimeout("location.reload()", 3000);
+    // });
 
     if (!playing || (grounded && Math.abs(this.rot) > Math.PI * 0.5)) {
       playing = false;
@@ -84,11 +84,20 @@ var player = new (function () {
       this.x -= speed * 5;
       var timeoutReload = () => {
         if (window.confirm("再挑戦しますか？")) {
-          reloading();
+          playing = true;
+          this.x = c.width / 2;
+          this.y = 0;
+          this.ySpeed = 0;
+          this.rot = 0;
+          this.rSpeed = 0;
+          k.ArrowUp = 0;
+          gameover = false;
         }
       };
-
-      setTimeout(timeoutReload, 3000);
+      if (gameover === false) {
+        setTimeout(timeoutReload, 1500);
+        gameover = true;
+      }
     }
 
     var angle = Math.atan2(p2 - size - this.y, this.x + 5 - this.x);
@@ -120,6 +129,8 @@ var player = new (function () {
 var t = 0;
 var speed = 0;
 var playing = true;
+var gameover = false;
+
 var k = { ArrowUp: 0, ArrowDown: 0, ArrowLeft: 0, ArrowRight: 0 };
 
 function loop() {
