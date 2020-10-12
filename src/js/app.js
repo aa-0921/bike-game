@@ -84,15 +84,19 @@ var player = new (function () {
       this.rSpeed = 5;
       k.ArrowUp = 1;
       this.x -= speed * 5;
+      var stop = new Date();
+      var ms = stop.getTime() - start.getTime();
+      var s = ms / 1000;
+      console.log("Time: " + s + "秒");
       var timeoutReload = () => {
-        if (window.confirm("再挑戦しますか？")) {
+        if (window.confirm("Time: " + s + "秒\n 再挑戦しますか？")) {
           playing = true;
           this.x = c.width / 2;
           this.y = 0;
           this.ySpeed = 0;
           this.rot = 0;
           this.rSpeed = 0;
-          k.ArrowUp = 0;
+          k.ArrowUp = 1;
           gameover = false;
         }
       };
@@ -132,16 +136,21 @@ var t = 0;
 var speed = 0;
 var playing = true;
 var gameover = false;
+var start = new Date();
 
-var k = { ArrowUp: 0, ArrowDown: 0, ArrowLeft: 0, ArrowRight: 0 };
+var k = { ArrowUp: 1, ArrowDown: 0, ArrowLeft: 0, ArrowRight: 0 };
 
 function loop() {
-  speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.1;
+  // speed -= (speed - (k.ArrowUp - k.ArrowDown)) * 0.1;
+  speed -= (speed - k.ArrowUp) * 0.1;
+
   t += 10 * speed;
-  ctx.fillStyle = "#19f";
+  // ctx.fillStyle = "#19f";
+  ctx.fillStyle = "black";
+
   ctx.fillRect(0, 0, c.width, c.height);
 
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "red";
 
   ctx.beginPath();
   ctx.moveTo(0, c.height);
@@ -162,3 +171,21 @@ onkeydown = (d) => (k[d.key] = 1);
 onkeyup = (d) => (k[d.key] = 0);
 
 loop();
+
+var dialog = document.querySelector("dialog");
+var open_btn = document.getElementById("open");
+var close_btn = document.getElementById("close");
+open_btn.addEventListener(
+  "click",
+  function () {
+    dialog.show();
+  },
+  false
+);
+close_btn.addEventListener(
+  "click",
+  function () {
+    dialog.close();
+  },
+  false
+);
