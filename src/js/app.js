@@ -13,7 +13,8 @@ c.height = 900;
 
 var gameQuit = false;
 
-var size = 40;
+var size = 62;
+var svgSize = 120;
 document.body.appendChild(c);
 
 var perm = [];
@@ -82,6 +83,8 @@ var player = new (function () {
     // });
 
     if (!playing || (grounded && Math.abs(this.rot) > Math.PI * 0.5)) {
+      // svgSize = 900;
+
       playing = false;
       this.rSpeed = 5;
       k.ArrowUp = 1;
@@ -91,6 +94,8 @@ var player = new (function () {
       var s = ms / 1000;
       console.log("Time: " + s + "秒");
       var timeoutReload = () => {
+        dialog.show();
+        // svgSize = 400;
         if (window.confirm("Time: " + s + "秒\n 再挑戦しますか？")) {
           playing = true;
           this.x = c.width / 2;
@@ -100,12 +105,14 @@ var player = new (function () {
           this.rSpeed = 0;
           k.ArrowUp = 1;
           gameover = false;
+          svgSize = 120;
         } else {
           gameQuit = true;
+
           console.log("else");
           // playing = false;
           this.x = c.width / 2;
-          this.y = 0;
+          this.y = -200;
           this.ySpeed = 0;
           this.rot = 0;
           this.rSpeed = 0;
@@ -114,7 +121,12 @@ var player = new (function () {
           console.log("speed", speed);
         }
       };
+      var playerBigger = () => {
+        svgSize = 1500;
+      };
       if (gameover === false) {
+        setTimeout(playerBigger, 900);
+
         setTimeout(timeoutReload, 1000);
         gameover = true;
       }
@@ -141,7 +153,7 @@ var player = new (function () {
     ctx.save();
     ctx.translate(this.x, this.y);
     ctx.rotate(this.rot);
-    ctx.drawImage(this.img, -size, -size, 70, 70);
+    ctx.drawImage(this.img, -size, -size, svgSize, svgSize);
 
     ctx.restore();
   };
@@ -161,6 +173,7 @@ function loop() {
   if (gameQuit != true) {
     speed = 1;
   }
+
   t += 10 * speed;
   // ctx.fillStyle = "#19f";
   ctx.fillStyle = "black";
@@ -189,16 +202,11 @@ onkeyup = (d) => (k[d.key] = 0);
 
 loop();
 
+// -------------dialog関連
 var dialog = document.querySelector("dialog");
-var open_btn = document.getElementById("open");
+
 var close_btn = document.getElementById("close");
-open_btn.addEventListener(
-  "click",
-  function () {
-    dialog.show();
-  },
-  false
-);
+
 close_btn.addEventListener(
   "click",
   function () {
