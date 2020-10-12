@@ -94,7 +94,8 @@ var player = new (function () {
       var s = ms / 1000;
       console.log("Time: " + s + "秒");
       var timeoutReload = () => {
-        dialog.show();
+        // 自作ダイアログの表示
+        // dialog.show();
         // svgSize = 400;
         if (window.confirm("Time: " + s + "秒\n 再挑戦しますか？")) {
           playing = true;
@@ -122,7 +123,7 @@ var player = new (function () {
         }
       };
       var playerBigger = () => {
-        svgSize = 1500;
+        svgSize = 2000;
         size = 1;
       };
       if (gameover === false) {
