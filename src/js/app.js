@@ -33,7 +33,7 @@ var noise = (x) => {
 
 var player = new (function () {
   this.x = c.width / 2;
-  this.y = 0;
+  this.y = 500;
   this.ySpeed = 0;
   this.rot = 0;
   this.rSpeed = 0;
@@ -89,6 +89,7 @@ var player = new (function () {
       this.rSpeed = 5;
       k.ArrowUp = 1;
       this.x -= speed * 5;
+      // 計測のストップ
       var stop = new Date();
       var ms = stop.getTime() - start.getTime();
       var s = ms / 1000;
@@ -120,15 +121,23 @@ var player = new (function () {
           k.ArrowUp = 0;
           speed -= 1;
           console.log("speed", speed);
+          svgSize = 2000;
         }
       };
       var playerBigger = () => {
         svgSize = 2000;
+        // this.x = c.width / 2;
+        // this.y = c.height / 2;
+        // this.y = 500;
+        // this.x = 500;
+
+        console.info("this.x", this.x);
+        console.info("this.y", this.y);
+
         // size = 1;
       };
       if (gameover === false) {
         setTimeout(playerBigger, 900);
-
         setTimeout(timeoutReload, 1000);
         gameover = true;
       }
@@ -147,6 +156,7 @@ var player = new (function () {
     if (gameQuit != true) {
       this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
       this.rot -= this.rSpeed * 0.1;
+      // this.ySpeed = 0;
     }
 
     if (this.rot > Math.PI) this.rot = -Math.PI;
