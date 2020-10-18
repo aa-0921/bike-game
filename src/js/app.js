@@ -124,7 +124,7 @@ var player = new (function () {
           k.ArrowUp = 0;
           speed -= 1;
           console.log("speed", speed);
-          svgSize = 500;
+          svgSize = 350;
         }
       };
       var playerBigger = () => {
