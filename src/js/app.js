@@ -9,7 +9,10 @@ var ctx = c.getContext("2d");
 // c.height = window.innerHeight;
 // c.width = 900;
 c.width = document.documentElement.clientWidth;
-c.height = 900;
+// c.height = document.documentElement.clientHeight;
+c.height = window.innerHeight;
+
+// c.height = 900;
 
 var gameQuit = false;
 
@@ -126,7 +129,7 @@ var player = new (function () {
         }
       };
       var playerBigger = () => {
-        svgSize = 2000;
+        svgSize = 800;
         // this.x = c.width / 2;
         // this.y = c.height / 2;
         // this.y = 500;
@@ -190,7 +193,8 @@ function loop() {
   t += 10 * speed;
   // ctx.fillStyle = "#19f";
   // ctx.fillStyle = "black";
-  ctx.fillStyle = "rgba(255,255,255,0.5)";
+  // ctx.fillStyle = "rgba(255,255,255,0.5)";
+  ctx.fillStyle = "rgba(240,255,255,0.5)";
 
   ctx.fillRect(0, 0, c.width, c.height);
 
