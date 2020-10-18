@@ -45,7 +45,8 @@ var player = new (function () {
   // this.img.src = "images/trump.png";
   // this.img.src = "../images/幽霊.svg";
   // this.img.src = "../images/能面.svg";
-  this.img.src = "../images/能面2.svg";
+  // this.img.src = "../images/能面2.svg";
+  this.img.src = "../images/ペンギンスケート滑る.gif";
 
   this.draw = function () {
     var p1 = c.height - noise(t + this.x) * 0.45;
@@ -188,11 +189,13 @@ function loop() {
 
   t += 10 * speed;
   // ctx.fillStyle = "#19f";
-  ctx.fillStyle = "black";
+  // ctx.fillStyle = "black";
+  ctx.fillStyle = "rgba(255,255,255,0.5)";
 
   ctx.fillRect(0, 0, c.width, c.height);
 
-  ctx.fillStyle = "red";
+  // ctx.fillStyle = "red";
+  ctx.fillStyle = "lightblue";
 
   ctx.beginPath();
   ctx.moveTo(0, c.height);
