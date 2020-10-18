@@ -113,19 +113,18 @@ var player = new (function () {
           gameover = false;
           svgSize = 120;
         } else {
-          gameQuit = true;
+          // gameQuit = true;
 
-          console.log("else");
           // playing = false;
           this.x = c.width / 2;
-          this.y = -200;
+          this.y = c.height / 2;
           this.ySpeed = 0;
           this.rot = 0;
           this.rSpeed = 0;
           k.ArrowUp = 0;
           speed -= 1;
           console.log("speed", speed);
-          svgSize = 2000;
+          svgSize = 500;
         }
       };
       var playerBigger = () => {
@@ -194,7 +193,7 @@ function loop() {
   // ctx.fillStyle = "#19f";
   // ctx.fillStyle = "black";
   // ctx.fillStyle = "rgba(255,255,255,0.5)";
-  ctx.fillStyle = "rgba(240,255,255,0.5)";
+  ctx.fillStyle = "rgba(240,255,255,1)";
 
   ctx.fillRect(0, 0, c.width, c.height);
 
