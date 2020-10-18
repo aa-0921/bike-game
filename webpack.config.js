@@ -10,6 +10,20 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 const devMode = process.env.NODE_ENV !== "production";
 
+const CopyFilePlugin = require("copy-webpack-plugin");
+const WriteFilePlugin = require("write-file-webpack-plugin");
+new CopyFilePlugin(
+  [
+    {
+      context: "src",
+      from: "./src/js/snowfall.jquery.js",
+      to: path.resolve(__dirname, "build"),
+    },
+  ],
+  { copyUnmodified: true }
+),
+  new WriteFilePlugin();
+
 const CONFIG = {
   entry: "./src/js/app.js",
   mode: process.env.NODE_ENV,
