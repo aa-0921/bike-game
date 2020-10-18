@@ -38,7 +38,7 @@ const CONFIG = {
       {
         from: `${__dirname}/src/snow/snowfall.jquery.js`,
         // to: `${__dirname}/app/_assets`,
-        to: `/`,
+        to: `/build`,
 
         context: `${__dirname}/src`,
       },
