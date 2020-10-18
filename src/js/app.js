@@ -49,7 +49,8 @@ var player = new (function () {
   // this.img.src = "../images/幽霊.svg";
   // this.img.src = "../images/能面.svg";
   // this.img.src = "../images/能面2.svg";
-  this.img.src = "../images/ペンギンスケート滑る.gif";
+  // this.img.src = "../images/ペンギンスケート滑る.gif";
+  this.img.src = "../images/リアルペンギン.png";
 
   this.draw = function () {
     var p1 = c.height - noise(t + this.x) * 0.45;
