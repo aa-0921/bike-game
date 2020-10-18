@@ -97,7 +97,7 @@ var player = new (function () {
       var stop = new Date();
       var ms = stop.getTime() - start.getTime();
       var s = ms / 1000;
-      console.log("Time: " + s + "秒");
+      // console.log("Time: " + s + "秒");
       var timeoutReload = () => {
         // 自作ダイアログの表示
         // dialog.show();
