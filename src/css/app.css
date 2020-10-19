@@ -107,6 +107,10 @@ section {
   margin: 0;
 }
 
+html {
+  background-color: lightblue;
+}
+
 ol,
 ul {
   list-style: none;
