@@ -2,7 +2,6 @@ const testModules = require("./test-module");
 require("../css/app.css");
 require("../scss/style.scss");
 
-/********** Paste your code here! ************/
 var c = document.createElement("canvas");
 var ctx = c.getContext("2d");
 // c.width = window.innerWidth;
@@ -14,7 +13,7 @@ c.height = window.innerHeight;
 // c.height = 900;
 
 ctx.translate(c.width / 2, c.height / 2);
-ctx.rotate((10 * Math.PI) / 180);
+ctx.rotate((3 * Math.PI) / 180);
 ctx.translate(-c.width / 2, -c.height / 2);
 
 var gameQuit = false;

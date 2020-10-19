@@ -352,3 +352,10 @@ footer {
     page-break-after: avoid;
   }
 }
+
+.upper {
+  height: 1px;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}
