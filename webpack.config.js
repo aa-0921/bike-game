@@ -34,6 +34,7 @@ const CONFIG = {
     filename: "app.js",
   },
   plugins: [
+    // snowfallのコピー
     new CopyPlugin([
       {
         from: `${__dirname}/src/snow/snowfall.jquery.js`,
