@@ -12,9 +12,9 @@ c.width = document.documentElement.clientWidth;
 c.height = window.innerHeight;
 // c.height = 900;
 
-ctx.translate(c.width / 2, c.height / 2);
-ctx.rotate((3 * Math.PI) / 180);
-ctx.translate(-c.width / 2, -c.height / 2);
+// ctx.translate(c.width / 2, c.height / 2);
+// ctx.rotate((3 * Math.PI) / 180);
+// ctx.translate(-c.width / 2, -c.height / 2);
 
 var gameQuit = false;
 
