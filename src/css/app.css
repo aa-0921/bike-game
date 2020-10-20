@@ -108,7 +108,7 @@ section {
 }
 
 html {
-  background-color: lightblue;
+  background-color: #f0ffff;
 }
 
 ol,
@@ -357,5 +357,5 @@ footer {
   height: 1px;
   top: 0;
   left: 0;
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }

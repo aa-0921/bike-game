@@ -44,6 +44,7 @@ var player = new (function () {
   this.rSpeed = 0;
 
   this.img = new Image();
+
   //画像URLをサーバにuploadしたものにしています
   // this.img.src =
   //   "https://user-images.githubusercontent.com/58985013/86532894-35b63a80-bf08-11ea-947b-0b662c0bfda7.png";
@@ -195,8 +196,8 @@ function loop() {
   t += 10 * speed;
   // ctx.fillStyle = "#19f";
   // ctx.fillStyle = "black";
-  // ctx.fillStyle = "rgba(255,255,255,0.5)";
-  ctx.fillStyle = "rgba(240,255,255,1)";
+  ctx.fillStyle = "rgba(51,74,82,1)";
+  // ctx.fillStyle = "rgba(240,255,255,1)";
 
   ctx.fillRect(0, 0, c.width, c.height);
 

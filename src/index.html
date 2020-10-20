@@ -5,7 +5,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Project</title>
 
     <meta name="author" content="" />
@@ -17,7 +16,7 @@
       itemprop="description"
       content="Content description less than 200
       characters"
-    />
+      />
     <meta itemprop="image" content="http://yourawesomeproject.com/image.jpg" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -29,7 +28,7 @@
     <meta
       property="og:image"
       content="http://yourawesomeproject.com/image.jpg"
-    />
+      />
     <meta property="og:description" content="Description Here" />
     <meta property="og:site_name" content="Site Name" />
 
@@ -42,11 +41,11 @@
       name="twitter:description"
       content="Content description less than 200
       characters"
-    />
+      />
     <meta
       name="twitter:image"
       content="http://yourawesomeproject.com/image.jpg"
-    />
+      />
 
     <link href="https://plus.google.com/+YourPage" rel="publisher" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -55,7 +54,7 @@
       rel="alternate"
       hreflang="en"
       href="http://yourawesomeproject.com/en"
-    />
+      />
     <link type="text/plain" rel="author" href="humans.txt" />
     <link rel="stylesheet" href="./css/app.css" />
   </head>
@@ -67,14 +66,12 @@
 
       <script
         type="text/javascript"
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-      ></script>
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <!-- <script type="text/javascript" src="./snow/snowfall.jquery.js"></script> -->
       <!-- <script type="text/javascript" src="../js/snowfall.jquery.js"></script> -->
       <script
         type="text/javascript"
-        src="https://penguin-game-delta.vercel.app/js/snowfall.jquery.js"
-      ></script>
+        src="https://penguin-game-delta.vercel.app/js/snowfall.jquery.js"></script>
       <dialog>
         <p>ダイアログ</p>
         <button id="close">閉じる</button>
@@ -88,11 +85,11 @@
         flakeColor: "#FFF", // 要素の色
         flakeIndex: 999999, // 要素のz-index
         minSize: 5, // 要素の最小サイズ
-        maxSize: 20, // 要素の最大サイズ
-        minSpeed: 2, // 要素の最小落下スピード
-        maxSpeed: 5, // 要素の最大落下スピード
+        maxSize: 10, // 要素の最大サイズ
+        minSpeed: 1, // 要素の最小落下スピード
+        maxSpeed: 7, // 要素の最大落下スピード
         round: true, // 要素に丸みを持たせる？
-        shadow: true, // 要素に影をつける？
+        shadow: false, // 要素に影をつける？
         //collection : 'div'		// 要素を指定の要素に積もらせる設定(画像を設定してもflakeColorで指定した要素の色が積もります)
         //image : './image.png'		// 要素を指定の画像に変更
       });
